@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib@LIB_SUFFIX@
+includedir=${prefix}/include
+
+Name: libsuit0
+Description: SFML User Interface Toolkit (libsuit)
+URL: https://github.com/jube/libsuit
+Version: @CPACK_PACKAGE_VERSION@
+Libs: -L${libdir} -lsuit0
+Cflags: -I${includedir}
