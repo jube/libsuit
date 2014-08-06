@@ -21,8 +21,8 @@
 #include <ui/Action.h>
 
 static const char *howto =
-  "Welcome in this super tutorial!\n"
-  "Try to push the Esc key."
+  "Welcome in the first SUIT example!\n"
+  "Push the Esc key to exit."
 ;
 
 int main() {

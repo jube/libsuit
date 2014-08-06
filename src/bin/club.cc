@@ -25,11 +25,13 @@
 #include "common/WidgetRenderer.h"
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(800, 600), "Hello World video config test");
+  const std::string title = "libsuit: test of the video configuration widget";
+
+  sf::RenderWindow window(sf::VideoMode(800, 600), title);
   WidgetRenderer renderer(window);
 
   ui::Area area({ 200.0f, 100.0f, 400.0f, 200.0f });
-  area.addChild(new ui::VideoConfigWidget(window, "Hello World video config test"));
+  area.addChild(new ui::VideoConfigWidget(window, title));
 
   area.updateLayout();
 

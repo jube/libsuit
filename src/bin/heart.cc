@@ -26,7 +26,7 @@
 #include "common/WidgetRenderer.h"
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(800, 600), "Hello World label test");
+  sf::RenderWindow window(sf::VideoMode(800, 600), "libsuit: test of a \"Hello World\" label");
   WidgetRenderer renderer(window);
 
   ui::Area area(800.0f, 600.0f);

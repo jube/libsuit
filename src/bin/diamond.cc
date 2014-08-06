@@ -64,7 +64,7 @@ namespace {
 
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(800, 600), "All widget test");
+  sf::RenderWindow window(sf::VideoMode(800, 600), "libsuit: test of all widgets");
   WidgetRenderer renderer(window);
 
   ui::Area area(800.0f, 600.0f);
