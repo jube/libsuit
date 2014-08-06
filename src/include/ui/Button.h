@@ -23,14 +23,36 @@
 
 namespace ui {
 
+  /**
+   * @brief A button widget.
+   *
+   * A button widget is a widget that can be pressed to trigger an action.
+   *
+   * @ingroup widgets
+   */
   class Button : public Leaf {
   public:
+    /**
+     * @brief Construct a button widget with some text.
+     *
+     * @param text the text of the button.
+     */
     Button(std::string text);
 
-    const std::string& text() {
+    /**
+     * @brief Get the text of the button.
+     *
+     * @return the text of the button.
+     */
+    const std::string& getText() {
       return m_text;
     }
 
+    /**
+     * @brief Set the function to call when the button is pressed.
+     *
+     * @param callback the function to call.
+     */
     void setCallback(Callback callback) {
       m_callback = callback;
     }

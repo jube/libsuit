@@ -22,11 +22,28 @@
 
 namespace ui {
 
+  /**
+   * @brief A label widget.
+   *
+   * A label widget is a widget that display some text.
+   *
+   * @ingroup widgets
+   */
   class Label : public Leaf {
   public:
+    /**
+     * @brief Construct a label widget with some text.
+     *
+     * @param text the text of the label.
+     */
     Label(std::string text);
 
-    const std::string& text() const {
+    /**
+     * @brief Get the text of the label.
+     *
+     * @return the text of the label.
+     */
+    const std::string& getText() const {
       return m_text;
     }
 

@@ -20,9 +20,20 @@
 
 namespace ui {
 
+  /**
+   * @brief A horizontal box.
+   *
+   * A horizontal box is a one-row table.
+   *
+   * @ingroup widgets
+   */
   class HBox : public Table {
   public:
+    /**
+     * @brief Construct a horizontal box.
+     */
     HBox();
+
     virtual void accept(WidgetVisitor& visitor) override;
   };
 

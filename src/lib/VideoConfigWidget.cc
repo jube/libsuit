@@ -61,7 +61,7 @@ namespace ui {
     auto accept = new Button("Accept");
     accept->setFocused(true);
     accept->setCallback([&window,window_title,this]() {
-      sf::VideoMode mode = m_modes.at(m_mode_widget->selectedIndex());
+      sf::VideoMode mode = m_modes.at(m_mode_widget->getSelectedIndex());
       sf::Uint32 style = sf::Style::Default;
 
       if (m_fullscreen_widget->isSelected()) {

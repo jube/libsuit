@@ -22,23 +22,48 @@
 
 namespace ui {
 
+  /**
+   * @brief A stack widget.
+   *
+   * A stack widget is a collection of widgets in which only one is visible.
+   *
+   * @ingroup widgets
+   */
   class Stack : public Widget {
   public:
     virtual ~Stack();
 
+    /**
+     * @brief Add a child to the stack.
+     *
+     * @param widget the new child
+     */
     void addChild(Widget *widget) {
       m_children.push(widget);
     }
 
+    /**
+     * @brief Remove the top child.
+     */
     void removeChild() {
       delete m_children.top();
       m_children.pop();
     }
 
+    /**
+     * @brief Tell whether the stack has children.
+     *
+     * @return true if the stack has children.
+     */
     bool hasChildren() const {
       return !m_children.empty();
     }
 
+    /**
+     * @brief Get the top child.
+     *
+     * @return the top child.
+     */
     Widget *getTopChild() {
       return m_children.top();
     }
@@ -46,6 +71,7 @@ namespace ui {
     virtual void onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) override;
 
     virtual void layoutRequest() override;
+
     virtual void layoutAllocation() override;
 
     virtual void accept(WidgetVisitor& visitor) override;

@@ -32,17 +32,17 @@ namespace ui {
     m_values.emplace_back(std::move(name), index);
   }
 
-  const std::string& Select::selectedName() const {
+  const std::string& Select::getSelectedName() const {
     assert(m_selected < m_values.size());
     return m_values[m_selected].first;
   }
 
-  Select::index_type Select::selectedIndex() const {
+  Select::index_type Select::getSelectedIndex() const {
     assert(m_selected < m_values.size());
     return m_values[m_selected].second;
   }
 
-  void Select::increaseSelectedIndex() {
+  void Select::pickNextValue() {
     ++m_selected;
 
     if (m_selected == m_values.size()) {
@@ -50,7 +50,7 @@ namespace ui {
     }
   }
 
-  void Select::decreaseSelectedIndex() {
+  void Select::pickPreviousValue() {
     if (m_selected == 0) {
       m_selected = m_values.size();
     }
@@ -61,10 +61,10 @@ namespace ui {
   void Select::onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) {
     switch (button) {
       case sf::Mouse::Left:
-        increaseSelectedIndex();
+        pickNextValue();
         break;
       case sf::Mouse::Right:
-        decreaseSelectedIndex();
+        pickPreviousValue();
         break;
       default:
         break;
@@ -72,11 +72,11 @@ namespace ui {
   }
 
   void Select::onPrimaryAction() {
-    increaseSelectedIndex();
+    pickNextValue();
   }
 
   void Select::onSecondaryAction() {
-    decreaseSelectedIndex();
+    pickPreviousValue();
   }
 
   void Select::accept(WidgetVisitor& visitor) {

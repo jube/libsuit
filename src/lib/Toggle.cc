@@ -19,17 +19,17 @@
 
 namespace ui {
   Toggle::Toggle()
-  : m_selected(true)
+  : m_selected(false)
   {
     setSizeHint(20, 20);
   }
 
   void Toggle::onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) {
-    m_selected = !m_selected;
+    switchSelection();
   }
 
   void Toggle::onPrimaryAction() {
-    m_selected = !m_selected;
+    switchSelection();
   }
 
   void Toggle::accept(WidgetVisitor& visitor) {

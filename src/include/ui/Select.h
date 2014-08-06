@@ -23,23 +23,69 @@
 
 namespace ui {
 
+  /**
+   * @brief A select widget.
+   *
+   * A select widget is a widget that offer a choice between several values.
+   *
+   * @ingroup widgets
+   */
   class Select : public Leaf {
   public:
     typedef std::size_t index_type;
     typedef std::pair<std::string, index_type> value_type;
 
+    /**
+     * @brief Construct a select widget.
+     */
     Select();
 
+    /**
+     * @brief Add a value to the selection.
+     *
+     * A value consist in a name and a user-defined index.
+     *
+     * ~~~{.cc}
+     * const double contants[] = { M_PI, M_E };
+     *
+     * ui::Select select; // associated with constants
+     * select.addValue("pi", 0); // 0 is the index of M_PI
+     * select.addValue("e", 1); // 1 is the index of M_E
+     * ~~~
+     *
+     * @param name the name of the value
+     * @param index a user-defined index for the value
+     */
     void addValue(std::string name, index_type index);
-    const std::string& selectedName() const;
-    index_type selectedIndex() const;
 
-    void increaseSelectedIndex();
-    void decreaseSelectedIndex();
+    /**
+     * @brief Get the current selected name.
+     *
+     * @return the current selected name.
+     */
+    const std::string& getSelectedName() const;
+
+    /**
+     * @brief Get the current selected index.
+     *
+     * @return the current selected index.
+     */
+    index_type getSelectedIndex() const;
+
+    /**
+     * @brief Pick the next value.
+     */
+    void pickNextValue();
+
+    /**
+     * @brief Pick the previous value.
+     */
+    void pickPreviousValue();
 
     virtual void onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) override;
 
     virtual void onPrimaryAction() override;
+
     virtual void onSecondaryAction() override;
 
     virtual void accept(WidgetVisitor& visitor) override;

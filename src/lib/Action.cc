@@ -94,18 +94,6 @@ namespace ui {
     }
   }
 
-  Action Action::getDefaultAccept() {
-    Action action("Accept");
-    action.addKeyControl(sf::Keyboard::Return);
-    return action;
-  }
-
-  Action Action::getDefaultReject() {
-    Action action("Reject");
-    action.addKeyControl(sf::Keyboard::Escape);
-    return action;
-  }
-
   // ActionSet
 
   void ActionSet::addAction(std::shared_ptr<Action> action) {

@@ -20,27 +20,49 @@
 
 namespace ui {
 
+  /**
+   * @brief A widget with a single child.
+   *
+   * @ingroup widgets
+   */
   class Bin : public Widget {
   public:
 
+    /**
+     * @brief Set the child of the widget.
+     *
+     * @param child the child of the widget.
+     */
     void setChild(Widget *child) {
       m_child = child;
     }
 
+    /**
+     * @brief Tell whether the widget already has a child.
+     *
+     * @return true if the widget has a child.
+     */
     bool hasChild() const {
       return m_child != nullptr;
     }
 
+    /**
+     * @brief Get the child of the widget.
+     *
+     * @return the child of the widget.
+     */
     Widget *getChild() {
       return m_child;
     }
 
     virtual void onPrimaryAction() override;
+
     virtual void onSecondaryAction() override;
 
     virtual void onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) override;
 
     virtual void layoutRequest() override;
+
     virtual void layoutAllocation() override;
 
     virtual void accept(WidgetVisitor& visitor) override;
