@@ -20,6 +20,11 @@
 
 namespace ui {
 
+  /**
+   * @brief The size policy of a widget.
+   *
+   * @ingroup widgets
+   */
   enum class SizePolicy {
     EXACT,      ///< the size hint is the exact size of the widget and it must not grow
     PREFERRED,  ///< the size hint is the preferred size of the widget but it may grow (default policy)
@@ -27,7 +32,9 @@ namespace ui {
   };
 
   /**
-   * @brief Alignement of a widget
+   * @brief The alignement of a widget
+   *
+   * @ingroup widgets
    */
   enum class Alignment {
     START,  ///< the widget should be aligned to the start (top or left)
@@ -35,14 +42,28 @@ namespace ui {
     END,    ///< the widget should be aligned to the end (bottom or right)
   };
 
+  /**
+   * @brief The geometry of a widget.
+   *
+   * @ingroup widgets
+   */
   struct Geometry {
-    SizePolicy policy = SizePolicy::PREFERRED;
-    float hint = 0.0f;
-    float size = 0.0f;
-    Alignment alignment = Alignment::CENTER;
-    float start = 0.0f;
+    SizePolicy policy = SizePolicy::PREFERRED; ///< the size policy
+    float hint = 0.0f; ///< the desired size of the widget
+    float size = 0.0f; ///< the computed size of the widget
+    Alignment alignment = Alignment::CENTER; ///< the alignment of the widget
+    float start = 0.0f; ///< the computed start of the widget
   };
 
+  /**
+   * @brief Compute the geometry of a child widget thanks to the geometry of
+   * its parent widget.
+   *
+   * @param parent the parent widget.
+   * @param child the child widget.
+   *
+   * @ingroup widgets
+   */
   void computeGeometry(const Geometry& parent, Geometry& child);
 
 }

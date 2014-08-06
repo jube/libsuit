@@ -24,8 +24,22 @@ namespace ui {
   class Select;
   class Toggle;
 
+  /**
+   * @brief A video configuration widget.
+   *
+   * A video configuration widget is a widget that configure the size of the
+   * window.
+   *
+   * @ingroup widgets
+   */
   class VideoConfigWidget : public Bin {
   public:
+    /**
+     * @brief Construct a video configuration widget.
+     *
+     * @param window the window to configure
+     * @param window_title the title of the window
+     */
     VideoConfigWidget(sf::Window& window, const std::string& window_title);
 
   private:
@@ -35,6 +49,5 @@ namespace ui {
   };
 
 }
-
 
 #endif // VIDEO_CONFIG_WIDGET_H

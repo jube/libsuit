@@ -20,19 +20,55 @@
 
 namespace ui {
 
+  /**
+   * @brief A form widget.
+   *
+   * A form is a two-column table.
+   *
+   * @ingroup widgets
+   */
   class Form : public Table {
   public:
+    /**
+     * @brief Construct a form.
+     */
     Form();
 
+    /**
+     * @brief Add a row to the form.
+     *
+     * @param left the widget in the left column.
+     * @param right the widget in the right column.
+     */
     void addRow(Widget *left, Widget *right);
 
-    size_type rowCount() const;
+    /**
+     * @brief Get the number of rows.
+     *
+     * This call is equivalent to:
+     *
+     * ~~~{.cc}
+     *   getChildrenCount() / 2
+     * ~~~
+     *
+     * @return the number of rows in the form.
+     */
+    size_type getRowCount() const;
 
+    /**
+     * @brief Get the ith row of the form.
+     *
+     * This call is equivalent to:
+     *
+     * ~~~{.cc}
+     *   { ithChild(2 * i), ithChild(2 * i + 1)  }
+     * ~~~
+     *
+     * @param i the row number.(starting from 0).
+     *
+     * @return the pair of widgets of the ith row.
+     */
     std::pair<Widget*, Widget*> ithRow(size_type i);
-
-    index_range rowIndices() {
-      return index_range(0, rowCount());
-    }
 
     virtual void accept(WidgetVisitor& visitor) override;
   };

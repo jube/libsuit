@@ -22,8 +22,18 @@
 
 namespace ui {
 
+  /**
+   * @brief A visitor to draw a debug view of the widgets.
+   *
+   * @ingroup widgets
+   */
   class DebugVisitor : public WidgetVisitor {
   public:
+    /**
+     * @brief Construct a debug visitor.
+     *
+     * @param target the render target (generally a window).
+     */
     DebugVisitor(sf::RenderTarget& target)
     : m_target(target)
     {
@@ -42,13 +52,19 @@ namespace ui {
     virtual void visitVBox(VBox& widget) override;
 
   protected:
+    /**
+     * @brief Draw a leaf widget.
+     */
     void drawLeaf(Leaf& widget);
+
+    /**
+     * @brief Draw a widget.
+     */
     void drawWidget(Widget& widget);
 
   private:
     sf::RenderTarget& m_target;
   };
-
 
 }
 

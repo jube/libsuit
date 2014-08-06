@@ -20,12 +20,43 @@
 
 namespace ui {
 
+  /**
+   * @brief A toggle widget.
+   *
+   * A toggle widget is a widget with two states that the user can switch.
+   *
+   * @ingroup widgets
+   */
   class Toggle : public Leaf {
   public:
+    /**
+     * @brief Construct a toggle widget.
+     */
     Toggle();
 
+    /**
+     * @brief Get the state of the toggle.
+     *
+     * @return true if the toggle is selected.
+     */
     bool isSelected() const {
       return m_selected;
+    }
+
+    /**
+     * @brief Set the selected state of the toggle.
+     *
+     * @param selected the new selected state.
+     */
+    void setSelected(bool selected = true) {
+      m_selected = selected;
+    }
+
+    /**
+     * @brief Change the selected state of the toggle.
+     */
+    void switchSelection() {
+      m_selected = !m_selected;
     }
 
     virtual void onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) override;

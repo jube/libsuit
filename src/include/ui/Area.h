@@ -20,19 +20,55 @@
 
 namespace ui {
 
+  /**
+   * @brief An area on the window that contains widgets.
+   *
+   * @ingroup widgets
+   */
   class Area : public Stack {
   public:
+    /**
+     * @brief Construct an area for a part of the window.
+     *
+     * @param rectangle the part of the window for the area.
+     */
     Area(const sf::FloatRect& rectangle);
+
+    /**
+     * @brief Construct an area for top-left rectangle in the window.
+     *
+     * @param width the width of the area.
+     * @param height the height of the area.
+     */
     Area(float width, float height);
 
+    /**
+     * @brief Update the layout of the area and its widgets.
+     */
     void updateLayout();
 
+    /**
+     * @brief Change the active widget in the up direction.
+     */
     void onUp();
+
+    /**
+     * @brief Change the active widget in the down direction.
+     */
     void onDown();
+
+    /**
+     * @brief Change the active widget in the left direction.
+     */
     void onLeft();
+
+    /**
+     * @brief Change the active widget in the right direction.
+     */
     void onRight();
 
     virtual void onPrimaryAction() override;
+
     virtual void onSecondaryAction() override;
 
     virtual void accept(WidgetVisitor& visitor) override;

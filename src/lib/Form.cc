@@ -32,7 +32,7 @@ namespace ui {
     addChild(right);
   }
 
-  Container::size_type Form::rowCount() const {
+  Container::size_type Form::getRowCount() const {
     size_type children_count = getChildrenCount();
     assert(children_count % 2 == 0);
     return children_count / 2;

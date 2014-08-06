@@ -29,26 +29,127 @@
 
 namespace ui {
 
+  /**
+   * @brief A widget visitor.
+   *
+   * @ingroup widgets
+   */
   class WidgetVisitor {
   public:
+    /**
+     * @brief Destroy the visitor.
+     */
     virtual ~WidgetVisitor();
 
+    /**
+     * @brief Visit an area widget.
+     *
+     * @param widget the area widget.
+     */
     virtual void visitArea(Area& widget);
+
+    /**
+     * @brief Visit a bin widget.
+     *
+     * @param widget the bin widget.
+     */
     virtual void visitBin(Bin& widget);
+
+    /**
+     * @brief Visit a button widget.
+     *
+     * @param widget the button widget.
+     */
     virtual void visitButton(Button& widget);
+
+    /**
+     * @brief Visit a form widget.
+     *
+     * @param widget the form widget.
+     */
     virtual void visitForm(Form& widget);
+
+    /**
+     * @brief Visit a horizontal box widget.
+     *
+     * @param widget the horizontal box widget.
+     */
     virtual void visitHBox(HBox& widget);
+
+    /**
+     * @brief Visit a label widget.
+     *
+     * @param widget the label widget.
+     */
     virtual void visitLabel(Label& widget);
+
+    /**
+     * @brief Visit a select widget.
+     *
+     * @param widget the select widget.
+     */
     virtual void visitSelect(Select& widget);
+
+    /**
+     * @brief Visit a stack widget.
+     *
+     * @param widget the stack widget.
+     */
     virtual void visitStack(Stack& widget);
+
+    /**
+     * @brief Visit a table widget.
+     *
+     * @param widget the table widget.
+     */
     virtual void visitTable(Table& widget);
+
+    /**
+     * @brief Visit a toggle widget.
+     *
+     * @param widget the toggle widget.
+     */
     virtual void visitToggle(Toggle& widget);
+
+    /**
+     * @brief Visit a vertical box widget.
+     *
+     * @param widget the vertical box widget.
+     */
     virtual void visitVBox(VBox& widget);
 
   protected:
+
+    /**
+     * @name Helpers
+     * @{
+     */
+    /**
+     * @brief Visit the bin child.
+     *
+     * This function verifies that the child exists.
+     *
+     * @param widget the bin widget.
+     */
     void visitBinChild(Bin& widget);
+
+    /**
+     * @brief Visit the container children.
+     *
+     * @param widget the container widget.
+     */
     void visitContainerChildren(Container& widget);
+
+    /**
+     * @brief Visit the stack top child.
+     *
+     * This function verifies that the child exists.
+     *
+     * @param widget the stack widget.
+     */
     void visitStackTopChild(Stack& widget);
+
+    /** @} */
 
   };
 

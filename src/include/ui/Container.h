@@ -20,85 +20,77 @@
 
 namespace ui {
 
+  /**
+   * @brief A widget that contains several other widgets.
+   *
+   * @ingroup widgets
+   */
   class Container : public Widget {
   public:
+    /**
+     * @brief Destroy the container.
+     */
     virtual ~Container();
 
     typedef typename std::vector<Widget *>::size_type size_type;
 
+    /**
+     * @brief Tell whether the container has children.
+     *
+     * @return true if the container has children.
+     */
     bool hasChildren() const {
       return !m_children.empty();
     }
 
+    /**
+     * @brief Add a child to the container.
+     *
+     * @param widget the new child to add.
+     */
     void addChild(Widget *widget) {
       m_children.push_back(widget);
     }
 
+    /**
+     * @brief Get the number of children of the container.
+     *
+     * @return the number of children of the container.
+     */
     size_type getChildrenCount() const {
       return m_children.size();
     }
 
+    /**
+     * @brief Return the ith child of the container.
+     *
+     * @param i the child number (starting from 0).
+     *
+     * @return the ith child of the container.
+     */
     Widget *ithChild(size_type i) {
       return m_children.at(i);
     }
 
+
     typedef typename std::vector<Widget *>::iterator iterator;
 
+    /**
+     * @brief Get the beginning of the container.
+     *
+     * @return an iterator on the beginning of the container.
+     */
     iterator begin() {
       return m_children.begin();
     }
 
+    /**
+     * @brief Get the end of the container.
+     *
+     * @return an iterator on the end of the container.
+     */
     iterator end() {
       return m_children.end();
-    }
-
-
-    class index_iterator {
-    public:
-      index_iterator(size_type i)
-      : m_index(i)
-      {
-      }
-
-      size_type operator*() {
-        return m_index;
-      }
-
-      index_iterator& operator++() {
-        ++m_index;
-        return *this;
-      }
-
-      bool operator!=(const index_iterator& other) const {
-        return m_index != other.m_index;
-      }
-
-    private:
-      size_type m_index;
-    };
-
-    class index_range {
-    public:
-      index_range(size_type begin, size_type end)
-      : m_begin(begin), m_end(end)
-      {
-      }
-
-      index_iterator begin() {
-        return m_begin;
-      }
-
-      index_iterator end() {
-        return m_end;
-      }
-
-    private:
-      index_iterator m_begin;
-      index_iterator m_end;
-    };
-
-    index_range getChildrenIndices() {
-      return index_range(0, getChildrenCount());
     }
 
     virtual void onClick(sf::Mouse::Button button, const sf::Vector2f& mouse) override;

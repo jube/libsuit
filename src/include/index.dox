@@ -1,0 +1,22 @@
+/**
+
+@defgroup widgets Widgets
+@brief A set of widgets.
+
+The widgets (descendant of ui::Widget) can be divided in two groups:
+
+- widgets that participate in the layout: mainly ui::Container and ui::Stack (and their children classes)
+- widgets that have a graphical representation: mainly ui::Bin and ui::Leaf (and their children classes)
+
+@sa ui::Widget, ui::Container, ui::Stack, ui::Bin, ui::Leaf
+
+
+@defgroup controls Controls and actions
+@brief A set of controls and actions.
+
+@namespace ui
+@brief The namespace of SUIT
+
+All the classes, types and functions that are defined in the SUIT library are put in the @c ui namespace.
+
+*/

@@ -86,7 +86,7 @@ void WidgetRenderer::visitButton(ui::Button& widget) {
   text.setFont(m_font);
   text.setCharacterSize(CHARACTER_SIZE);
   text.setColor(sf::Color::Black);
-  text.setString(widget.text());
+  text.setString(widget.getText());
 
   auto bounds = text.getLocalBounds();
   float x = geometry.left + (geometry.width - bounds.width) / 2;
@@ -121,7 +121,7 @@ void WidgetRenderer::visitLabel(ui::Label& widget) {
   text.setFont(m_font);
   text.setCharacterSize(CHARACTER_SIZE);
   text.setColor(sf::Color::Black);
-  text.setString(widget.text());
+  text.setString(widget.getText());
 
   auto bounds = text.getLocalBounds();
   float x = geometry.left + (geometry.width - bounds.width) / 2;
@@ -148,7 +148,7 @@ void WidgetRenderer::visitSelect(ui::Select& widget) {
   text.setFont(m_font);
   text.setCharacterSize(CHARACTER_SIZE);
   text.setColor(sf::Color::Black);
-  text.setString(widget.selectedName());
+  text.setString(widget.getSelectedName());
 
   auto bounds = text.getLocalBounds();
   float x = geometry.left + (geometry.width - bounds.width) / 2;

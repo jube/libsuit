@@ -20,6 +20,11 @@
 
 namespace ui {
 
+  /**
+   * @brief A generic callback function.
+   *
+   * @ingroup widgets
+   */
   typedef std::function<void()> Callback;
 
 }

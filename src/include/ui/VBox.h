@@ -20,9 +20,20 @@
 
 namespace ui {
 
+  /**
+   * @brief A vertical box.
+   *
+   * A vertical box is a one-column table.
+   *
+   * @ingroup widgets
+   */
   class VBox : public Table {
   public:
+    /**
+     * @brief Construct a vertical box.
+     */
     VBox();
+    
     virtual void accept(WidgetVisitor& visitor) override;
   };
 
